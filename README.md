@@ -119,21 +119,13 @@ XGBRegressor(
 ## 📦 Repository Structure
 
 ```
-.
-├── Data Preprocessing/
-│   ├── mimic.py
-│   ├── features.py
-│   ├── 
-│   ├── train_model.py
-│   └── inference.py
-├── Model Training/
-│   ├── train.py
-├── Model File/
-│   ├── xgb_sbp.json
-│   └── xgb_dbp.json
-├── Data/
-│   └── features.csv 
-├── Requirements/
+├── features.py
+│── ecg_series_and_ppg_series_alignment_with_bp_changes_patrick_modification.py
+│── onsets.py
+│── train.py
+├── xgb_sbp.json
+│── xgb_dbp.json
+│── features.csv 
 ├── requirements.txt
 └── README.md
 ```
@@ -161,60 +153,25 @@ wfdb-download -p mimic4wdb/0.1.0 -o data/raw/
 
 ---
 
-### 3️⃣ Preprocess Signals
+### 3️⃣ Preprocess Signals and extract Features(ECG + PPG)
 
 ```bash
-python src/preprocess.py \
-  --input data/raw \
-  --output data/processed
+#Before running it add the data path and import features.py and onsets.py in it.
+
+python ecg_series_and_ppg_series_alignment_with_bp_changes_patrick_modification.py 
 ```
 
 ---
 
-### 4️⃣ Extract Features
 
-**PPG Features**
-
-```bash
-python src/ppg_features.py \
-  --input data/processed \
-  --output data/features_ppg.csv
-```
-
-**ECG Features**
-
-```bash
-python src/ecg_features.py \
-  --input data/processed \
-  --output data/features_ecg.csv
-```
-
-**Merge Features**
-
-```bash
-python src/merge_features.py
-```
 
 ---
 
-### 5️⃣ Train the Models
+### 6️⃣ Train the Model
 
 ```bash
-python src/train_model.py \
-  --features data/features.csv \
-  --save_dir models/
-```
-
----
-
-### 6️⃣ Run Inference on New Data
-
-```bash
-python src/inference.py \
-  --model_sbp models/xgb_sbp.json \
-  --model_dbp models/xgb_dbp.json \
-  --ppg sample_ppg.csv \
-  --ecg sample_ecg.csv
+#Train the model and add the features files csv in this for training.
+python train.py 
 ```
 
 ---
@@ -223,8 +180,7 @@ python src/inference.py \
 
 Includes visualizations:
 
-* Predicted vs Actual scatter plots
-* Shap values 
+* Shap values for the systolic and diastolic blood pressure
 
 **Example Performance:**
 
