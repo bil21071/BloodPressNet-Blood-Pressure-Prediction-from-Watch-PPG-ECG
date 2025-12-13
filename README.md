@@ -79,8 +79,6 @@ Total engineered features: **21**.
 
 ---
 
-You are seeing it *in one long line* because GitHub Markdown requires **line breaks and code blocks**.
-Here is the **correctly formatted README.md** — copy-paste EXACTLY as it is.
 
 
 
