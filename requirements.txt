@@ -1,0 +1,4 @@
+xgboost
+wfdb==4.3.0
+matplotlib==3.10.5
+neurokit2==0.2.12
