@@ -221,13 +221,7 @@ GitHub: [https://github.com/bil21071(https://github.com/bil21071)
 
 ---
 
-If you want, I can also generate:
 
-* `requirements.txt`
-* All Python script files
-* Sample dataset structure
-
-Just say **“generate the code files”**.
 
 ---
 
